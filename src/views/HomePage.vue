@@ -1,6 +1,5 @@
 <template>
     <div class="home-page">
-      <!-- Personagens -->
       <div v-if="characters.length">
         <h1 class="category-title">Personagens</h1>
         <button @click="showOnlyFavorites = !showOnlyFavorites" class="filter-button">
@@ -21,7 +20,6 @@
         </div>
       </div>
   
-      <!-- Planetas -->
       <div v-if="planets.length">
         <h1 class="category-title">Planetas</h1>
         <div class="cards-container">
@@ -31,8 +29,7 @@
           </div>
         </div>
       </div>
-  
-      <!-- Naves -->
+
       <div v-if="starships.length">
         <h1 class="category-title">Naves</h1>
         <div class="cards-container">
@@ -42,8 +39,7 @@
           </div>
         </div>
       </div>
-  
-      <!-- Modal -->
+
       <div v-if="showModal" class="modal-overlay" @click="closeModal">
         <div class="modal-content" @click.stop>
           <template v-if="selectedItemType === 'character'">

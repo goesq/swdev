@@ -1,15 +1,17 @@
 <template>
   <div id="app">
     <header>
+      <div class="left-nav">
+        <router-link to="/">Home</router-link>
+      </div>
+
       <div class="title">
         <h1>Star Wars API - IIOT</h1>
       </div>
+
       <div class="buttons">
         <nav>
           <ul>
-            <li>
-              <router-link to="/">Home</router-link>
-            </li>
             <li>
               <router-link to="/search">Buscar Dados</router-link>
             </li>
@@ -21,6 +23,7 @@
     <router-view />
   </div>
 </template>
+
 
 <script lang="ts">
 import './assets/scss/reset.scss';
@@ -40,9 +43,30 @@ header {
   padding: 10px 20px;
 }
 
+/* Novo container pro link Home */
+.left-nav {
+  flex: 1;
+}
+
+.left-nav a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.left-nav a:hover,
+.router-link-exact-active {
+  background-color: #42b983;
+  color: #fff;
+}
+
+/* Título centralizado */
 .title {
-  flex: 2; /* Faz o título ocupar o máximo de espaço possível */
-  text-align: center; /* Centraliza o título dentro do container */
+  flex: 2;
+  text-align: center;
 }
 
 h1 {
@@ -51,9 +75,11 @@ h1 {
   color: #ffffff;
 }
 
-/* Estilo para os botões de navegação */
+/* Botão de buscar à direita */
 .buttons {
+  flex: 1;
   display: flex;
+  justify-content: flex-end;
 }
 
 nav ul {
@@ -64,7 +90,7 @@ nav ul {
 }
 
 nav li {
-  margin-right: 20px; /* Espaçamento entre os links */
+  margin-left: 20px;
 }
 
 nav a {
@@ -76,14 +102,9 @@ nav a {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-
 nav a:hover {
   background-color: #42b983;
   color: #fff;
 }
 
-.router-link-exact-active {
-  background-color: #42b983;
-  color: #fff;
-}
 </style>

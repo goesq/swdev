@@ -1,5 +1,5 @@
 
-
+import 'primeicons/primeicons.css';
 import { createApp } from 'vue';
 import App from './App.vue';
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';

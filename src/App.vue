@@ -21,9 +21,15 @@
     </header>
 
     <router-view />
+
+    <footer class="flex align-items-center justify-content-center bg-gray-200 border-round p-3">
+      Projeto feito por: 
+      <a href="https://github.com/goesq" class="text-blue-500 font-bold no-underline ml-2 flex align-items-center">
+        <i class="pi pi-github text-2xl mr-1"></i> Victor Goes
+      </a>
+    </footer>
   </div>
 </template>
-
 
 <script lang="ts">
 import './assets/scss/reset.scss';
@@ -43,7 +49,6 @@ header {
   padding: 10px 20px;
 }
 
-/* Novo container pro link Home */
 .left-nav {
   flex: 1;
 }
@@ -63,7 +68,6 @@ header {
   color: #fff;
 }
 
-/* Título centralizado */
 .title {
   flex: 2;
   text-align: center;
@@ -75,7 +79,6 @@ h1 {
   color: #ffffff;
 }
 
-/* Botão de buscar à direita */
 .buttons {
   flex: 1;
   display: flex;
@@ -106,5 +109,4 @@ nav a:hover {
   background-color: #42b983;
   color: #fff;
 }
-
 </style>

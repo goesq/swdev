@@ -8,7 +8,6 @@
         placeholder="Buscar por nome"
         @input="filterSearch"
       />
-      <button @click="goBackToHomePage">Voltar à Exibição</button>
     </div>
 
     <div v-if="searchedData.length">
@@ -29,6 +28,8 @@
       <p>Carregando dados...</p>
     </div>
 
+    <button class="align-items-center" @click="goBackToHomePage">Voltar à Exibição</button>
+
     <div v-if="showEditModal" class="modal-overlay" @click="closeEditModal">
       <div class="modal-content" @click.stop>
         <h2>Editar {{ editingItem?.name }}</h2>
@@ -39,6 +40,9 @@
       </div>
     </div>
   </div>
+
+  
+
 </template>
 
 <script lang="ts">

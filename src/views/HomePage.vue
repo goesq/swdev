@@ -39,7 +39,7 @@
           </div>
         </div>
       </div>
-
+      
       <div v-if="showModal" class="modal-overlay" @click="closeModal">
         <div class="modal-content" @click.stop>
           <template v-if="selectedItemType === 'character'">

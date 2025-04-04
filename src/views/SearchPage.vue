@@ -60,7 +60,6 @@ export default defineComponent({
     const editingCategory = ref<string>('');
     const router = useRouter();
 
-    // Função para buscar dados da API ao carregar a página
     const fetchData = async () => {
       try {
         const [peopleRes, planetsRes, starshipsRes] = await Promise.all([
@@ -79,7 +78,6 @@ export default defineComponent({
       }
     };
 
-    // Computed para categorizar os dados
     const categorizedData = computed(() => {
       return searchedData.value.reduce((acc, item) => {
         if (!acc[item.category]) acc[item.category] = [];
@@ -88,7 +86,6 @@ export default defineComponent({
       }, {} as Record<string, any[]>);
     });
 
-    // Filtrar pesquisa conforme o usuário digita
     const filterSearch = () => {
       if (searchQuery.value.trim() === '') {
         fetchData();
@@ -99,21 +96,18 @@ export default defineComponent({
       );
     };
 
-    // Abrir modal de edição
     const openEditModal = (item: any, category: string) => {
       editingItem.value = { ...item };
       editingCategory.value = category;
       showEditModal.value = true;
     };
 
-    // Fechar modal de edição
     const closeEditModal = () => {
       showEditModal.value = false;
       editingItem.value = null;
       editingCategory.value = '';
     };
 
-    // Salvar edição e atualizar os dados
     const saveEdit = async () => {
       try {
         await axios.put(`/api/update/${editingCategory.value.toLowerCase()}`, editingItem.value);
@@ -124,12 +118,10 @@ export default defineComponent({
       }
     };
 
-    // Voltar à página inicial
     const goBackToHomePage = () => {
       router.push('/');
     };
 
-    // Carregar os dados automaticamente ao entrar na página
     onMounted(() => {
       fetchData();
     });

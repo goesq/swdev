@@ -47,6 +47,7 @@
             <p><strong>Gênero:</strong> {{ selectedCharacter?.gender }}</p>
             <p><strong>Altura:</strong> {{ selectedCharacter?.height }} cm</p>
             <p><strong>Filmes:</strong> {{ selectedCharacter?.films.length }}</p>
+            <img v-if="selectedCharacter?.image" :src="selectedCharacter.image" alt="Imagem do item" class="modal-image" />
           </template>
   
           <template v-else-if="selectedItemType === 'planet'">
@@ -119,7 +120,8 @@
                       person.gender === 'female' ? 'Feminino' :
                       person.gender === 'n/a' || person.gender === 'none' ? 'Não definido' :
                       'Desconhecido',
-              films: person.films
+              films: person.films,
+              image: person.image
             }));
             characters.push(...people);
           })
@@ -264,6 +266,14 @@
     border-radius: 10px;
     text-align: center;
   }
+
+  .modal-image {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
   
   .modal-content button {
     margin-top: 10px;

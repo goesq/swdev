@@ -39,10 +39,11 @@
         <button @click="closeEditModal">Cancelar</button>
       </div>
     </div>
+
+    <div v-if="showSuccessMessage" class="success-message">
+      Edição salva com sucesso!
+    </div>
   </div>
-
-  
-
 </template>
 
 <script lang="ts">
@@ -58,6 +59,7 @@ export default defineComponent({
     const showEditModal = ref(false);
     const editingItem = ref<any>(null);
     const editingCategory = ref<string>('');
+    const showSuccessMessage = ref(false);
     const router = useRouter();
 
     const fetchData = async () => {
@@ -112,7 +114,11 @@ export default defineComponent({
       try {
         await axios.put(`/api/update/${editingCategory.value.toLowerCase()}`, editingItem.value);
         closeEditModal();
+        showSuccessMessage.value = true;
         fetchData();
+        setTimeout(() => {
+          showSuccessMessage.value = false;
+        }, 2000);
       } catch (error) {
         console.error('Erro ao salvar edição:', error);
       }
@@ -136,7 +142,8 @@ export default defineComponent({
       editingItem,
       openEditModal,
       closeEditModal,
-      saveEdit
+      saveEdit,
+      showSuccessMessage
     };
   }
 });
@@ -227,5 +234,18 @@ button:hover {
   padding: 20px;
   border-radius: 10px;
   text-align: center;
+}
+
+.success-message {
+  margin-top: 20px;
+  color: #2d8a34;
+  font-weight: bold;
+  text-align: center;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 </style>

@@ -1,29 +1,76 @@
-# swdev
+# SWDev - Star Wars Explorer
 
-This template should help get you started developing with Vue 3 in Vite.
+Este projeto é um aplicativo front-end desenvolvido em Vue 3 com Vite, que consome a API do [SWAPI](https://swapi.dev/) para exibir personagens, naves e planetas do universo Star Wars. O sistema permite visualizar detalhes sobre cada item, favoritar personagens e editar os dados.
 
-## Recommended IDE Setup
+## Tecnologias Utilizadas
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+- **Vue 3** (com Composition API)
+- **Vite** (para um desenvolvimento rápido e otimizado)
+- **Axios** (para requisições HTTP)
+- **PrimeFlex** (para estilização com classes utilitárias)
+- **Vue Router** (para navegação entre páginas)
+- **Pinia** (para gerenciamento de estado)
 
-## Customize configuration
+## Funcionalidades
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+- Listagem de personagens, planetas e naves de Star Wars
+- Exibição de detalhes de cada item
+- Favoritar personagens
+- Edição de itens, com alterações refletidas na página principal
+- Interface responsiva e intuitiva
 
-## Project Setup
+## Como Rodar o Projeto
 
+### 1. Instalação das Dependências
 ```sh
 npm install
 ```
+Ou, se estiver usando Yarn:
+```sh
+yarn install
+```
 
-### Compile and Hot-Reload for Development
-
+### 2. Executar em Ambiente de Desenvolvimento
 ```sh
 npm run dev
 ```
+Ou:
+```sh
+yarn dev
+```
 
-### Compile and Minify for Production
-
+### 3. Gerar Build para Produção
 ```sh
 npm run build
 ```
+Ou:
+```sh
+yarn build
+```
+
+## Estrutura do Projeto
+```
+├── src
+│   ├── components  # Componentes reutilizáveis
+│   ├── views       # Páginas principais
+│   ├── store       # Gerenciamento de estado com Pinia
+│   ├── router      # Configuração de rotas com Vue Router
+│   ├── assets      # Imagens e estilos
+│   ├── main.ts     # Arquivo principal
+│   ├── App.vue     # Componente raiz
+│
+├── public          # Arquivos estáticos
+├── package.json    # Configuração do projeto
+├── vite.config.ts  # Configuração do Vite
+```
+
+## API Utilizada
+
+A aplicação consome dados da [SWAPI](https://swapi.dev/), que fornece informações sobre personagens, planetas e naves do universo Star Wars.
+
+## Contribuição
+
+Sinta-se à vontade para contribuir com melhorias e novas funcionalidades! Basta clonar o repositório, criar uma branch para suas alterações e abrir um pull request.
+
+Que a Força esteja com você! 🚀
+
